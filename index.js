@@ -70,7 +70,7 @@ app.get("/books/", authenticateToken, async (request, response) => {
 });
 
 //Get Book API
-app.get("/books/:bookId/", async (request, response) => {
+app.get("/books/:bookId/", authenticateToken, async (request, response) => {
   let jwtToken;
   const authHeader = request.headers["authorization"];
   if (authHeader !== undefined) {
